@@ -11,6 +11,6 @@ public interface Request {
 
     Object[] getArguments();
 
-    Class<?>[] getParameterTypes();
+    String getParameterTypes();
 
 }
