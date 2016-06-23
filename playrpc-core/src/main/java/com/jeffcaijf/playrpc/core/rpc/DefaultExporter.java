@@ -34,6 +34,7 @@ public class DefaultExporter<T> implements Exporter<T> {
                                 ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
 
                                 try {
+//                                    input.readUTF();
                                     Request request = (Request) input.readObject();
                                     ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
                                     System.out.println("To respond to the request: " + request);

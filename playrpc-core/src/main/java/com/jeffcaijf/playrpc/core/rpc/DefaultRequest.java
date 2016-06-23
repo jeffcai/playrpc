@@ -7,33 +7,33 @@ import java.io.Serializable;
  */
 public class DefaultRequest implements Request, Serializable {
 
-    private String interfanceName;
+    private String interfaceName;
     private String methodName;
     private String parameterTypes;
     private Object[] arguments;
 
     @Override
     public String getInterfaceName() {
-        return null;
+        return interfaceName;
     }
 
     @Override
     public String getMethodName() {
-        return null;
+        return methodName;
     }
 
     @Override
     public Object[] getArguments() {
-        return new Object[0];
+        return arguments;
     }
 
     @Override
     public String getParameterTypes() {
-        return this.parameterTypes;
+        return parameterTypes;
     }
 
-    public void setInterfanceName(String interfanceName) {
-        this.interfanceName = interfanceName;
+    public void setInterfaceName(String interfaceName) {
+        this.interfaceName = interfaceName;
     }
 
     public void setMethodName(String methodName) {
@@ -50,7 +50,7 @@ public class DefaultRequest implements Request, Serializable {
 
     @Override
     public String toString() {
-        return interfanceName + "." + methodName + "(" + parameterTypes + ")" + " with args: " + arguments;
+        return interfaceName + "." + methodName + "(" + parameterTypes + ")" + " with args: " + arguments;
     }
 
 }

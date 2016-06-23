@@ -21,9 +21,8 @@ public class DefaultClient extends AbstractClient {
             ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
 
             try {
-                output.writeUTF(request.getMethodName());
-                output.writeObject(request.getParameterTypes());
-                output.writeObject(request.getArguments());
+//                output.writeUTF(request.getMethodName());
+                output.writeObject(request);
                 ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
 
                 try {

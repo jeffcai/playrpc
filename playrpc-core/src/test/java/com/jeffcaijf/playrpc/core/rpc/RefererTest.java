@@ -16,7 +16,7 @@ public class RefererTest {
         HelloService service = (HelloService) Proxy.newProxyInstance(HelloService.class.getClassLoader(), new Class[]
                 {HelloService.class}, new RefererInvocationHandler<HelloService>(referer, HelloService.class));
 
-        service.hello("hi");
+        System.out.println(service.hello("hi"));
     }
 
 }
