@@ -2,31 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jeffcaijf</groupId>
     <artifactId>playrpc</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>playrpc-core</module>
     </modules>
 
-    <name>PlayRPC</name>
+    <name>Play RPC</name>
     <description>Play RPC for coding a RPC framework based on enterprise own needs by referring to some open source frameoworks like weibo motan and twitter fiangle.</description>
     <url>https://github.com/jeffcai/playrpc</url>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>4.0.37.Final</version>
-            </dependency>
-            <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>18.0</version>
+                <version>19.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
