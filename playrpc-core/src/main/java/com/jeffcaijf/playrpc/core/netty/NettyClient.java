@@ -13,6 +13,7 @@ public class NettyClient {
 
     private String host;
     private int port;
+    private Bootstrap bootstrap;
 
     public NettyClient(String host, int port) {
         this.host = host;
@@ -23,11 +24,11 @@ public class NettyClient {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
-            Bootstrap b = new Bootstrap();
-            b.group(workerGroup);
-            b.channel(NioServerSocketChannel.class);
-            b.option(ChannelOption.SO_KEEPALIVE, true);
-            b.handler(new ChannelInitializer<SocketChannel>() {
+            bootstrap = new Bootstrap();
+            bootstrap.group(workerGroup);
+            bootstrap.channel(NioServerSocketChannel.class);
+            bootstrap.option(ChannelOption.SO_KEEPALIVE, true);
+            bootstrap.handler(new ChannelInitializer<SocketChannel>() {
 
                 protected void initChannel(SocketChannel ch) throws Exception {
                     ch.pipeline().addLast(new NettyClientHandler());
@@ -35,7 +36,7 @@ public class NettyClient {
 
             });
 
-            ChannelFuture f = b.bind(host, port);
+            ChannelFuture f = bootstrap.bind(host, port);
             f.channel().closeFuture().sync();
         } finally {
             workerGroup.shutdownGracefully();
