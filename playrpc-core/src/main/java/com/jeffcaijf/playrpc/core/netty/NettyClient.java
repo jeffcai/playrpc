@@ -8,8 +8,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.FutureListener;
 
 import java.net.InetSocketAddress;
 import java.util.Map;
@@ -36,7 +34,6 @@ public class NettyClient extends AbstractClient {
     public void connect() throws Exception {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-//        try {
         bootstrap = new Bootstrap();
         bootstrap.group(workerGroup);
         bootstrap.channel(NioServerSocketChannel.class);
@@ -51,12 +48,6 @@ public class NettyClient extends AbstractClient {
             }
 
         });
-
-//            ChannelFuture f = bootstrap.bind(host, port);
-//            f.channel().closeFuture().sync();
-//        } finally {
-//            workerGroup.shutdownGracefully();
-//        }
     }
 
     @Override
