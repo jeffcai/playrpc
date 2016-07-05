@@ -1,21 +1,25 @@
 package com.jeffcaijf.playrpc.core.netty;
 
+import com.jeffcaijf.playrpc.core.rpc.Response;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
  * Created by jeff on 6/23/16.
  */
-public class NettyClientHandler extends ChannelInboundHandlerAdapter {
+public class NettyClientHandler extends SimpleChannelInboundHandler<Response> {
 
-    @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        super.channelRead(ctx, msg);
+    private NettyClient client;
+
+    public NettyClientHandler(NettyClient client) {
+        this.client = client;
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        super.exceptionCaught(ctx, cause);
+    protected void channelRead0(ChannelHandlerContext ctx, Response response) throws Exception {
+        // TODO key
+        System.out.println("Response in Client handler: " + response);
+        client.getResponseMap().put("key", response);
     }
 
 }

@@ -3,13 +3,13 @@ package com.jeffcaijf.playrpc.core.rpc;
 /**
  * Created by jeff on 7/5/16.
  */
-public class NettyClient extends AbstractClient {
+public class NettyChannel extends AbstractClient {
 
-    private NettyClient nettyClient;
+    private NettyChannel nettyClient;
 
-    public NettyClient(String host, int port) {
+    public NettyChannel(String host, int port) {
         super(host, port);
-        nettyClient = new NettyClient(host, port);
+        nettyClient = new NettyChannel(host, port);
     }
 
     @Override
