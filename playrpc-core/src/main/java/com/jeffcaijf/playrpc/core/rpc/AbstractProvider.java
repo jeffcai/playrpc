@@ -23,7 +23,7 @@ public abstract class AbstractProvider<T> implements Provider<T> {
         return invoke(request);
     }
 
-    protected abstract Response invoke(Request request) throws Exception;
+    public abstract Response invoke(Request request) throws Exception;
 
     protected Method lookup(Request request) {
         String methodDesc = ReflectUtil.getMethodDesc(request.getMethodName(), request.getParameterTypes());

@@ -13,7 +13,7 @@ public class DefaultProvider<T> extends AbstractProvider<T> {
     }
 
     @Override
-    protected Response invoke(Request request) throws Exception {
+    public Response invoke(Request request) throws Exception {
         Object result = lookup(request).invoke(serviceImpl, request.getArguments());
         return new DefaultResponse(result);
     }
