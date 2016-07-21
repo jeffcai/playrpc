@@ -12,9 +12,9 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<Request> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Request request) throws Exception {
-        // get provider based on request to handle request
-        // TODO construct provider
-        DefaultProvider provider = new DefaultProvider(request.getInterfaceName(), null);
+        Registry registry = new DefaultRegistry();
+        String interfaceName = request.getInterfaceName();
+        DefaultProvider provider = new DefaultProvider(interfaceName, Class.forName(registry.getServiceImpl(interfaceName)));
         Response result = provider.invoke(request);
 
         ctx.channel().writeAndFlush(new DefaultResponse(result));
